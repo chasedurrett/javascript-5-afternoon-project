@@ -186,7 +186,7 @@ function secretNumber() {
   };
 }
 
-////////// PROBLEM 8 //////////
+////////// PROBLEM 8 ////////// /////////
 
 /*
   Here we have a for loop that will iterate as long as i is less than or equal to 5.
