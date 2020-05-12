@@ -157,23 +157,20 @@ class Machine {
     this.wear_and_tear_count = 0;
     this.needs_reboot = false;
   }
+
   makeWidgets(num) {
     this.widgets_made_count += num;
-    for (let i = 0; ; i++) {
-      if (i % 50 === 0) {
-        return (this.wear_and_tear_count += 1);
-      }
-    }
+    this.wear_and_tear_count = Math.floor(this.widgets_made_count / 50);
   }
+
   fixMachine() {
-    return (this.needs_reboot = true);
+    this.needs_reboot = true;
   }
+
   reboot() {
-    return {
-      function() {
-        this.wear_and_tear_count -= 10;
-        this.needs_reboot = false;
-      },
+    return () => {
+      this.wear_and_tear_count -= 10;
+      this.needs_reboot = false;
     };
   }
 }
